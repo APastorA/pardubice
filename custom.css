@@ -1,3 +1,8 @@
 slides > slide:not(.nobackground):before {
   content: "Jonathan Passerat-Palmbach / passerat@isima.fr";
 }
+
+slides > slide.title-slide:after {
+  background: url(./images/limos.png) no-repeat 100% 100%;
+}
+

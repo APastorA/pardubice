@@ -1,8 +1,8 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'Template Google Slides',
-    subtitle: '',
+    title: 'Git - the ultimate Version Control System (VCS)',
+    subtitle: 'LIMOS - Séminaire doctorants - 7 Mai 2013',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
     enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.
@@ -19,9 +19,9 @@ var SLIDE_CONFIG = {
   // Author information
   presenters: [{
     name: 'Jonathan Passerat-Palmbach',
-    company: 'ISIMA / LIMOS',
-    www: 'http://fc.isima.fr/~passerat'
-    //github: 'http://github.com/jHackTheRipper'
+    company: 'Doctorant, ISIMA / LIMOS',
+    www: 'http://fc.isima.fr/~passerat',
+    github: 'http://github.com/jHackTheRipper'
   }/*, {
     name: 'Second Name',
     company: 'Job Title, Google',
