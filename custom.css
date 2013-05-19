@@ -4,5 +4,10 @@ slides > slide:not(.nobackground):before {
 
 slides > slide.title-slide:after {
   background: url(./images/limos.png) no-repeat 100% 100%;
+  background-size: 10% 120%;
 }
 
+.logoslide img {
+  width: 70%;
+  height: 70%;
+}
