@@ -31,7 +31,7 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide class="logoslide nobackground">
     <article class="centered flexbox vcenter">
-      <span><img src="./images/limos.png"></span>
+      <span><img src="./images/Biomedia_blue_M_IC.png"></span>
     </article>
   </slide>
 
@@ -155,9 +155,9 @@ URL: https://code.google.com/p/io-2012-slides
         <li>Use at the top of the folder hierarchy to version</li>
       </ul>
         <pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:/tmp$ cd seance3/exo1/
-jopasserat@vapula:/tmp/seance3/exo1$ <b>git init</b>
-Initialized empty Git repository in /private/tmp/seance3/exo1/.git/
+jopasserat@vapula:/tmp$ cd git_tutorial/ex1/
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git init</b>
+Initialized empty Git repository in /private/tmp/git_tutorial/ex1/.git/
         </pre>
     </article>
   </slide>
@@ -173,10 +173,10 @@ Initialized empty Git repository in /private/tmp/seance3/exo1/.git/
                 <li>Takes files or whole folders as parameter</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:/tmp/seance3/exo1$ ls
-bar	foo	toto
-jopasserat@vapula:/tmp/seance3/exo1$ <b>git add bar</b>
-jopasserat@vapula:/tmp/seance3/exo1$ <b>git add .</b>
+jopasserat@vapula:/tmp/git_tutorial/ex1$ ls
+bar	foo	foo
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git add bar</b>
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git add .</b>
             </pre>
         </article>
     </slide>
@@ -190,7 +190,7 @@ jopasserat@vapula:/tmp/seance3/exo1$ <b>git add .</b>
                 <li>Display the current status of the working tree (what is to be commited, what is staged for commit...)</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:/tmp/seance3/exo1$ <b>git status</b>
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git status</b>
 # On branch master
 #
 # Initial commit
@@ -200,7 +200,7 @@ jopasserat@vapula:/tmp/seance3/exo1$ <b>git status</b>
 #
 #	new file:   bar
 #	new file:   foo
-#	new file:   toto
+#	new file:   foo
 #
             </pre>
         </article>
@@ -217,15 +217,15 @@ jopasserat@vapula:/tmp/seance3/exo1$ <b>git status</b>
                 <li>Creates a snapshot of each file staged for commit</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:/tmp/seance3/exo1$ <b>git commit bar -m 'First commit of bar file'</b>
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git commit bar -m 'First commit of bar file'</b>
 [master (root-commit) 6ba7d15] First commit of bar file
 0 files changed
 create mode 100644 bar
-jopasserat@vapula:/tmp/seance3/exo1$ <b>git commit -am 'Commit the remaining files'</b>
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git commit -am 'Commit the remaining files'</b>
 [master cd2c39c] Commit the remaining files
 0 files changed
 create mode 100644 foo
-create mode 100644 toto
+create mode 100644 foo
     </pre>
         </article>
     </slide>
@@ -240,15 +240,15 @@ create mode 100644 toto
                 <li>Displayed using /usr/bin/less on UNIX (same commands as Vi...)</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:/tmp/seance3/exo1$ <b>git log</b>
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git log</b>
 commit cd2c39cc6a6bb6a08f3d74c37ecc0dfd71e5d604
-Author: jH@CKtheRipper <passerat@isima.fr>
+Author: jH@CKtheRipper <j.passerat-palmbach@imperial.ac.uk>
 Date:   Tue Mar 12 22:48:32 2013 +0100
     
     Commit the remaining files
     
 commit 6ba7d15d3fe75bfe279f51eae81cdb11016afee1
-Author: jH@CKtheRipper <passerat@isima.fr>
+Author: jH@CKtheRipper <j.passerat-palmbach@imperial.ac.uk>
 Date:   Tue Mar 12 22:48:03 2013 +0100
         
     First commit of bar file
@@ -267,8 +267,8 @@ Date:   Tue Mar 12 22:48:03 2013 +0100
                 <li>- for removed lines</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:/tmp/seance3/exo1$ vi bar
-jopasserat@vapula:/tmp/seance3/exo1$ <b>git diff bar</b>
+jopasserat@vapula:/tmp/git_tutorial/ex1$ vi bar
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git diff bar</b>
 diff --git a/bar b/bar
 index e69de29..270c611 100644
 --- a/bar
@@ -289,13 +289,13 @@ index e69de29..270c611 100644
                 <li>Move tracked file from one folder to another</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:/tmp/seance3/exo1$ <b>git mv foo pouet</b>
-jopasserat@vapula:/tmp/seance3/exo1$ mkdir dir
-jopasserat@vapula:/tmp/seance3/exo1$ <b>git mv toto dir/</b>
-jopasserat@vapula:/tmp/seance3/exo1$ <b>git ls-files</b>
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git mv foo bar</b>
+jopasserat@vapula:/tmp/git_tutorial/ex1$ mkdir dir
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git mv foo dir/</b>
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git ls-files</b>
 bar
-dir/toto
-pouet
+dir/foo
+bar
             </pre>
         </article>
     </slide>
@@ -311,15 +311,15 @@ pouet
                 <li>Stop tracking a file</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:/tmp/seance3/exo1$ <b>git rm pouet</b>
-rm 'pouet'
-jopasserat@vapula:/tmp/seance3/exo1$ ls
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git rm bar</b>
+rm 'bar'
+jopasserat@vapula:/tmp/git_tutorial/ex1$ ls
 bar	dir
-jopasserat@vapula:/tmp/seance3/exo1$ <b>git rm --cached dir/toto</b>
-rm 'dir/toto'
-jopasserat@vapula:/tmp/seance3/exo1$ ls
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git rm --cached dir/foo</b>
+rm 'dir/foo'
+jopasserat@vapula:/tmp/git_tutorial/ex1$ ls
 bar	dir
-jopasserat@vapula:/tmp/seance3/exo1$ <b>git ls-files</b>
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git ls-files</b>
 bar
             </pre>
         </article>
@@ -343,16 +343,16 @@ bar
                 <li>List available branches</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git branch</b>
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git branch</b>
 * master
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git ls-files</b>
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git ls-files</b>
 bar
 foo
-toto
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git branch</b>
+foo
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git branch</b>
 * master
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git branch let</b>
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git branch</b>
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git branch let</b>
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git branch</b>
 let
 * master
             </pre>
@@ -369,22 +369,22 @@ let
                 <li>Can also create new branches (-b)</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git checkout let</b>
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git checkout let</b>
 Switched to branch 'let'
-jopasserat@macbook-pro:/tmp/seance3/exo2$ touch pouet
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git add pouet</b>
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git commit pouet -m 'Add new file pouet'</b>
-[let 6e38e6d] Add new file pouet
+jopasserat@vapula:/tmp/git_tutorial/ex2$ touch bar
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git add bar</b>
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git commit bar -m 'Add new file bar'</b>
+[let 6e38e6d] Add new file bar
 0 files changed
-create mode 100644 pouet
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git checkout master</b>
+create mode 100644 bar
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git checkout master</b>
 Switched to branch 'master'
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git log</b>
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git log</b>
 commit 3dad27b54e5e32c81339a24683cfc69f5cd699e6
-Author: jH@CKtheRipper <passerat@isima.fr>
+Author: jH@CKtheRipper <j.passerat-palmbach@imperial.ac.uk>
     Date:   Wed Mar 13 09:20:30 2013 +0100
     
-    Initial commit for exo2
+    Initial commit for ex2
             </pre>
         </article>
     </slide>
@@ -398,23 +398,23 @@ Author: jH@CKtheRipper <passerat@isima.fr>
                 <li>Merge given branch into current one</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@macbook-pro:/tmp/seance3/exo2$ vi toto
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git commit -am 'Add content to toto'</b>
-[master 163b5cc] Add content to toto
+jopasserat@vapula:/tmp/git_tutorial/ex2$ vi foo
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git commit -am 'Add content to foo'</b>
+[master 163b5cc] Add content to foo
 1 file changed, 1 insertion(+)
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git checkout let</b>
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git checkout let</b>
 Switched to branch 'let'
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git merge master</b>
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git merge master</b>
 Merge made by the 'recursive' strategy.
-toto |    1 +
+foo |    1 +
 1 file changed, 1 insertion(+)
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git checkout master</b>
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git checkout master</b>
 Switched to branch 'master'
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git merge let</b>
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git merge let</b>
 Updating 163b5cc..f5bd56a
 Fast-forward
 0 files changed
-create mode 100644 pouet
+create mode 100644 bar
                     </pre>
         </article>
     </slide>
@@ -428,23 +428,23 @@ create mode 100644 pouet
                 <li>Add a commit to revert changes from a particular commit </li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git revert 163b5cc</b>
-[master 079e613] Revert "Add content to toto"
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git revert 163b5cc</b>
+[master 079e613] Revert "Add content to foo"
 1 file changed, 1 deletion(-)
-jopasserat@macbook-pro:/tmp/seance3/exo2$ <b>git log</b>
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git log</b>
 commit 079e61373807ec29839ed064a943f6ff5b6d8229
-Author: jH@CKtheRipper <passerat@isima.fr>
+Author: jH@CKtheRipper <j.passerat-palmbach@imperial.ac.uk>
 Date:   Wed Mar 13 10:08:11 2013 +0100
     
-    Revert "Add content to toto"
+    Revert "Add content to foo"
     
     This reverts commit 163b5cc12867376275a84f2355d42e412ed317c2.
 ...
 commit 163b5cc12867376275a84f2355d42e412ed317c2
-Author: jH@CKtheRipper <passerat@isima.fr>
+Author: jH@CKtheRipper <j.passerat-palmbach@imperial.ac.uk>
 Date:   Wed Mar 13 09:45:08 2013 +0100
             
-    Add content to toto
+    Add content to foo
             </pre>
         </article>
     </slide>
@@ -466,17 +466,17 @@ Date:   Wed Mar 13 09:45:08 2013 +0100
                 <li>Create a local copy of a remote repository by downloading it</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@macbook-pro:/tmp/seance3/exo3$ <b>git clone
-    git://github.com/jHackTheRipper/prepisima_genie-log.git</b>
-Cloning into 'prepisima_genie-log'...
+jopasserat@vapula:/tmp/git_tutorial/ex3$ <b>git clone
+    git://github.com/jHackTheRipper/git_tutorial-biomedia.git</b>
+Cloning into 'git_tutorial-biomedia'...
 remote: Counting objects: 22, done.
 remote: Compressing objects: 100% (16/16), done.
 remote: Total 22 (delta 6), reused 22 (delta 6)
 Receiving objects: 100% (22/22), 286.11 KiB | 77 KiB/s, done.
 Resolving deltas: 100% (6/6), done.
-jopasserat@macbook-pro:/tmp/seance3/exo3$ cd prepisima_genie-log/
-jopasserat@macbook-pro:/tmp/seance3/exo3/prepisima_genie-log$ vi README.md
-jopasserat@macbook-pro:/tmp/seance3/exo3/prepisima_genie-log$ <b>git commit -am 'Now I can
+jopasserat@vapula:/tmp/git_tutorial/ex3$ cd git_tutorial-biomedia/
+jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ vi README.md
+jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git commit -am 'Now I can
     tune the README the way I want in my own copy'</b>
 [master fe5d9b0] Now I can tune the README the way I want in my own copy
 1 file changed, 2 insertions(+)
@@ -493,17 +493,17 @@ jopasserat@macbook-pro:/tmp/seance3/exo3/prepisima_genie-log$ <b>git commit -am 
                 <li>Send changes from your local repository to a remote one</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@macbook-pro:~/enseignement/genie_log/slides/seance3$ <b>git commit -am 'Add new
-    slides to 3rd class (seance3)'</b>
-[master 5693571] Add new slides to 3rd class (seance3)
+jopasserat@vapula:~/git_tutorial_biomedia_18-12-13$ <b>git commit -am 'Add new
+    slides to 3rd class (git_tutorial)'</b>
+[master 5693571] Add new slides to 3rd class (git_tutorial)
 1 file changed, 39 insertions(+), 18 deletions(-)
-jopasserat@macbook-pro:~/enseignement/genie_log/slides/seance3$ <b>git push origin master</b>
+jopasserat@vapula:~/git_tutorial_biomedia_18-12-13$ <b>git push origin master</b>
 Counting objects: 7, done.
 Delta compression using up to 2 threads.
 Compressing objects: 100% (4/4), done.
 Writing objects: 100% (4/4), 960 bytes, done.
 Total 4 (delta 2), reused 0 (delta 0)
-To git@github.com:jHackTheRipper/prepisima_genie-log.git
+To git@github.com:jHackTheRipper/git_tutorial-biomedia.git
 b711a37..5693571  master -> master
             </pre>
         </article>
@@ -518,15 +518,15 @@ b711a37..5693571  master -> master
                 <li><b>Fetch</b> and <b>merge</b> new commits added to a given remote repository</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@macbook-pro:/tmp/seance3/exo3/prepisima_genie-log$ <b>git pull origin master</b>
+jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git pull origin master</b>
 remote: Counting objects: 7, done.
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 4 (delta 2), reused 4 (delta 2)
 Unpacking objects: 100% (4/4), done.
-From git://github.com/jHackTheRipper/prepisima_genie-log
+From git://github.com/jHackTheRipper/git_tutorial-biomedia
 * branch            master     -> FETCH_HEAD
 Merge made by the 'recursive' strategy.
-seance3/index.html |   57 +++++++++++++++++++++++++++++++++++-----------------
+git_tutorial/index.html |   57 +++++++++++++++++++++++++++++++++++-----------------
 1 file changed, 39 insertions(+), 18 deletions(-)
             </pre>
         </article>
@@ -544,14 +544,14 @@ seance3/index.html |   57 +++++++++++++++++++++++++++++++++++-----------------
             <ul class="build fade">
                 
             <li><pre class="prettyprint" data-lang="bash">
-jopasserat@macbook-pro:/tmp/seance3/exo3/prepisima_genie-log$ vi seance3/index.html
-jopasserat@macbook-pro:/tmp/seance3/exo3/prepisima_genie-log$ <b>git commit -am 'My changes
+jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ vi git_tutorial/index.html
+jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git commit -am 'My changes
     that will lead to a conflict'</b>
 [master 94647de] My changes that will lead to a conflict
 1 file changed, 1 insertion(+), 1 deletion(-)
-jopasserat@macbook-pro:/tmp/seance3/exo3/prepisima_genie-log$ <b>git pull</b>
-Auto-merging seance3/index.html
-CONFLICT (content): Merge conflict in seance3/index.html
+jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git pull</b>
+Auto-merging git_tutorial/index.html
+CONFLICT (content): Merge conflict in git_tutorial/index.html
 Automatic merge failed; fix conflicts and then commit the result.
 </pre></li>
                 
@@ -577,8 +577,8 @@ Automatic merge failed; fix conflicts and then commit the result.
                 <li>Conflicts happen when trying to merge a commit that changes a file you also modified in your working tree</li>
             </ul>
             <pre>
-jopasserat@macbook-pro:/tmp/seance3/exo3/prepisima_genie-log$ <b>git add seance3/index.html</b>
-jopasserat@macbook-pro:/tmp/seance3/exo3/prepisima_genie-log$ <b>git commit -am 'Solved
+jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git add git_tutorial/index.html</b>
+jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git commit -am 'Solved
 merge conflict'</b>
 [master 246f7a1] Solved merge conflict
             </pre>

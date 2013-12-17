@@ -1,9 +1,9 @@
 slides > slide:not(.nobackground):before {
-  content: "Jonathan Passerat-Palmbach / passerat@isima.fr";
+  content: "Jonathan Passerat-Palmbach / j.passerat-palmbach@imperial.ac.uk";
 }
 
 slides > slide.title-slide:after {
-  background: url(./images/limos.png) no-repeat 100% 100%;
+  background: url(./images/Biomedia_blue_M_IC.png) no-repeat 100% 100%;
   background-size: 10% 120%;
 }
 
