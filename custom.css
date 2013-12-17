@@ -1,6 +1,12 @@
 slides > slide:not(.nobackground):before {
   content: "Jonathan Passerat-Palmbach / j.passerat-palmbach@imperial.ac.uk";
+  background: url(./images/original_octocat_32.png) no-repeat 0 50%;
 }
+
+slides > slide:not(.nobackground):before img {
+  width: 85px;
+  height: 85px;
+} 
 
 slides > slide.title-slide:after {
   background: url(./images/Biomedia_blue_M_IC.png) no-repeat 100% 100%;
@@ -11,3 +17,4 @@ slides > slide.title-slide:after {
   width: 70%;
   height: 70%;
 }
+
