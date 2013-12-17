@@ -20,7 +20,7 @@ var SLIDE_CONFIG = {
   presenters: [{
     name: 'Jonathan Passerat-Palmbach',
     company: 'Imperial College London',
-    www: 'http://fc.isima.fr/~passerat',
+    www: 'http://jopasser.at   (coming soon :)',
     github: 'http://github.com/jHackTheRipper'
   }/*, {
     name: 'Second Name',
