@@ -576,7 +576,7 @@ Automatic merge failed; fix conflicts and then commit the result.
             <ul>
                 <li>Conflicts happen when trying to merge a commit that changes a file you also modified in your working tree</li>
             </ul>
-            <pre>
+            <pre class="prettyprint" data-lang="bash">
 jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git add git_tutorial/index.html</b>
 jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git commit -am 'Solved
 merge conflict'</b>
@@ -590,6 +590,7 @@ merge conflict'</b>
         <hgroup class="auto-fadein">
             <h2>Git - the ultimate VCS</h2>
 	    <h3>A successful Git branching model applied to IRTK</h3>
+            <h4>Schemas courtesy of Vincent Driessen - "A successful Git branching model" - 2010</h4>
         </hgroup>
     </slide>
 
@@ -597,17 +598,63 @@ merge conflict'</b>
       <hgroup>
 	<h2 class="blue">Popular branching model</h2>
       </hgroup>
-    <article>
-
-    </article>
     </slide>
 
-    
+    <slide>
+        <hgroup>
+            <h2>Cloning IRTK and browsing branches</h2>
+        </hgroup>
+        <article>
+            <ul>
+                <li>Not all remote branches are fetched when cloning</li>
+            </ul>
+            <pre class="prettyprint" data-lang="bash">
+jpassera@hornbeam:~/playground$ <b>git clone https://github.com/sk1712/IRTK.git</b>
+Cloning into 'IRTK'...
+...
+Checking out files: 100% (1470/1470), done.
+jpassera@hornbeam:~/playground/IRTK$ <b>git branch</b>
+* master
+jpassera@hornbeam:~/playground/IRTK$ <b>git branch -a</b>
+* master
+remotes/origin/HEAD -> origin/master
+remotes/origin/gh-pages
+remotes/origin/master
+jpassera@hornbeam:~/playground/IRTK$ <b>git checkout -b gh-pages remotes/origin/gh-pages</b>
+Branch gh-pages set up to track remote branch gh-pages from origin.
+Switched to a new branch 'gh-pages'
+jpassera@hornbeam:~/playground/IRTK$ <b>git log --pretty=oneline</b>
+12b0b390091b7ff4e32c6137425ef1fb889d5d29 Create gh-pages branch via GitHub
+fc64a1416366e5d26ce11036ff22bdf1a8f9e702 Create gh-pages branch via GitHub
+            </pre>
+        </article>
+    </slide>
+
+    <slide>
+      <hgroup>
+        <h2>Creating a 'develop' branch</h2>
+      </hgroup>
+
+      <article>
+        <center>
+          <img src="./images/master+develop.png" />
+        </center>
+        <pre class="prettyprint" data-lang="bash">    
+jpassera@hornbeam:~/playground/IRTK$ <b>git checkout -b develop</b>
+Switched to a new branch 'develop'
+....
+jpassera@hornbeam:~/playground/IRTK$ <b>git push [-u] origin develop</b>
+        </pre>
+      </article>
+    </slide>
+
+
     <slide class="thank-you-slide segue nobackground">
     <aside class="gdbar right"><img src="./images/original_octocat.png"></aside>
     <article class="flexbox vleft auto-fadein">
-      <h2>&lt;Thanks!&gt;</h2>
-      <p>Check my GitHub :)</p>
+      <h2>&lt;References&gt;</h2>
+      <a href="http://www.git-scm.com/book">http://www.git-scm.com/book</a>
+      <a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a>
     </article>
     <p class="auto-fadein" data-config-contact>
       <!-- populated from slide_config.json -->
