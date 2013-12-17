@@ -657,11 +657,7 @@ jpassera@hornbeam:~/playground/IRTK$ <b>git push [-u] origin develop</b>
         <center>
           <img src="./images/feature.png" />
         </center>
-        <p>Example: test irtkCUGenericImage creations</p>
-      <pre class="prettyprint" data-lang="c++">    
-irtkCUGenericImage<irtkBytePixel>* test1 = new irtkCUGenericImage<irtkBytePixel>();
-if(test1 != NULL) std::cout << "constructor test 1 --> Pass" << std::endl;
-      </pre>
+        <p>Example: Add an undo/redo button to rview</p>
       </article>
     </slide>
 
@@ -671,20 +667,71 @@ if(test1 != NULL) std::cout << "constructor test 1 --> Pass" << std::endl;
       </hgroup>
       <article>
       <pre class="prettyprint" data-lang="bash">    
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git checkout -b feature_Test_irtkCUGenericImageCreation develop</b>
-Switched to a new branch 'feature_Test_irtkCUGenericImageCreation'
+jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git checkout -b featureUndoRedoButton</b>
+Switched to a new branch 'featureUndoRedoButton'
+jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ vi Fl_RView_Transformation.cc
+jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git commit -am 'Add undo button to rview'</b>
+[featureUndoRedoButton f867aff] Add undo button to rview
+1 file changed, 4 insertions(+)
+jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ vi Fl_RView_Transformation.cc
+jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git commit -am 'Add redo button to rview'</b>
+[featureUndoRedoButton 7520857] Add redo button to rview
+1 file changed, 4 insertions(+)
+jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git checkout develop</b>
+Switched to branch 'develop'
+jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git merge --no-ff featureUndoRedoButton</b>
+Merge made by the 'recursive' strategy.
+packages/rview/fltk/Fl_RView_Transformation.cc | 8 ++++++++
+1 file changed, 8 insertions(+)
+jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git branch -d featureUndoRedoButton</b>
+Deleted branch featureUndoRedoButton (was 7520857).
+jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git push origin develop</b>
+      </pre>
+      </article>
+    </slide>
+
+     <slide>
+      <hgroup>
+        <h2>Developing a hotfix</h2>
+      </hgroup>
+
+      <article>
+        <center>
+          <img src="./images/hotfix.png" />
+        </center>
+        <p>Example: correct the test of irtkCUGenericImage creations</p>
+      <pre class="prettyprint" data-lang="c++">    
+irtkCUGenericImage<irtkBytePixel>* test1 = new irtkCUGenericImage<irtkBytePixel>();
+if(test1 != NULL) std::cout << "constructor test 1 --> Pass" << std::endl;
+      </pre>
+      </article>
+    </slide>
+
+     <slide>
+      <hgroup>
+        <h2>Developing a hotfix</h2>
+      </hgroup>
+      <article>
+      <pre class="prettyprint" data-lang="bash">    
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git checkout -b hotfix-xYz master</b>
+Switched to a new branch 'hotfix-xYz'
 jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ vi cudaCommon++/tests/irtkCUImageTest.cpp 
 jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git commit -am "Tested irtkCUGenericImage creation with bad_alloc instead of NULL"</b>
-[feature_Test_irtkCUGenericImageCreation 0a4ed3d] Tested irtkCUGenericImage creation with bad_alloc instead of NULL
+[hotfix-xYz 0a4ed3d] Tested irtkCUGenericImage creation with bad_alloc instead of NULL
 1 file changed, 15 insertions(+), 16 deletions(-)
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git checkout develop</b>
-Switched to branch 'develop'
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git merge --no-ff feature_Test_irtkCUGenericImageCreation</b>
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git checkout master</b>
+Switched to branch 'master'
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git merge --no-ff hotfix-xYz master</b>
 Merge made by the 'recursive' strategy.
 cudaCommon++/tests/irtkCUImageTest.cpp | 31 +++++++++++++++----------------
 1 file changed, 15 insertions(+), 16 deletions(-)
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git branch -d feature_Test_irtkCUGenericImageCreation</b>
-Deleted branch feature_Test_irtkCUGenericImageCreation (was 0a4ed3d).
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git tag -a xYz.1</b>
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git push origin master</b>
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git checkout develop</b>
+Switched to branch 'develop'
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git merge --no-ff hotfix-xYz master</b>
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git branch -d hotfix-xYz</b>
+Deleted branch hotfix-xYz (was 0a4ed3d).
 jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git push origin develop</b>
         </pre>
       </article>
