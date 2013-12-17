@@ -648,6 +648,48 @@ jpassera@hornbeam:~/playground/IRTK$ <b>git push [-u] origin develop</b>
       </article>
     </slide>
 
+     <slide>
+      <hgroup>
+        <h2>Developing a new feature</h2>
+      </hgroup>
+
+      <article>
+        <center>
+          <img src="./images/feature.png" />
+        </center>
+        <p>Example: test irtkCUGenericImage creations</p>
+      <pre class="prettyprint" data-lang="c++">    
+irtkCUGenericImage<irtkBytePixel>* test1 = new irtkCUGenericImage<irtkBytePixel>();
+if(test1 != NULL) std::cout << "constructor test 1 --> Pass" << std::endl;
+      </pre>
+      </article>
+    </slide>
+
+     <slide>
+      <hgroup>
+        <h2>Developing a new feature</h2>
+      </hgroup>
+      <article>
+      <pre class="prettyprint" data-lang="bash">    
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git checkout -b feature_Test_irtkCUGenericImageCreation develop</b>
+Switched to a new branch 'feature_Test_irtkCUGenericImageCreation'
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ vi cudaCommon++/tests/irtkCUImageTest.cpp 
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git commit -am "Tested irtkCUGenericImage creation with bad_alloc instead of NULL"</b>
+[feature_Test_irtkCUGenericImageCreation 0a4ed3d] Tested irtkCUGenericImage creation with bad_alloc instead of NULL
+1 file changed, 15 insertions(+), 16 deletions(-)
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git checkout develop</b>
+Switched to branch 'develop'
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git merge --no-ff feature_Test_irtkCUGenericImageCreation</b>
+Merge made by the 'recursive' strategy.
+cudaCommon++/tests/irtkCUImageTest.cpp | 31 +++++++++++++++----------------
+1 file changed, 15 insertions(+), 16 deletions(-)
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git branch -d feature_Test_irtkCUGenericImageCreation</b>
+Deleted branch feature_Test_irtkCUGenericImageCreation (was 0a4ed3d).
+jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git push origin develop</b>
+        </pre>
+      </article>
+    </slide>
+
 
     <slide class="thank-you-slide segue nobackground">
     <aside class="gdbar right"><img src="./images/original_octocat.png"></aside>
