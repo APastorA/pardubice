@@ -50,31 +50,9 @@ URL: https://code.google.com/p/io-2012-slides
     <aside class="gdbar bottom"><img src="./images/original_octocat.png"></aside>
     <hgroup class="auto-fadein">
       <h2>Git - the ultimate VCS</h2>
-      <h3>What is Version Control?</h3>
+      <h3>Version control schemes: Local, Centralized, Distributed</h3>
       <h4>Schemas courtesy of Scott Chacon - "Pro Git" - 2009</h4>
     </hgroup>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Version Control</h2>
-    </hgroup>
-    <article>
-      <ul>
-        <li>Record changes to a set of files over time</li>
-        <li>Recall specific versions at any time</li>
-      </ul>
-      Example: keep track of every version of your thesis...
-    </article>
-    <br/>
-    <article>
-      Three different kinds of VCS:
-      <ul>
-	  <li>Local</li>
-	  <li>Centralized</li>
-	  <li>Distributed</li>
-      </ul>
-    </article>
   </slide>
 
   <slide>
@@ -85,6 +63,7 @@ URL: https://code.google.com/p/io-2012-slides
       <ul>
         <li>Record stored on host</li>
         <li>Error prone</li>
+	<li>rcs on MacOS X</li>
       </ul>
       <center>
       <img src="./images/schema_local.png" />
@@ -115,9 +94,9 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <ul>
         <li>Record stored on a each local copy</li>
-        <li>Share the changes between </li>
+        <li>Share the changes between repositories</li>
         <li>Version Control is available anywhere, anytime</li>
-        <li><i>Bazaar, Mercurial, Git</i></li>
+        <li>Bazaar, Mercurial, <b>Git</b></li>
       </ul>
       <center>
       <img src="./images/schema_distributed.png" width="350" height="350"/>
@@ -200,7 +179,7 @@ jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git status</b>
 #
 #	new file:   bar
 #	new file:   foo
-#	new file:   foo
+#	new file:   foobar
 #
             </pre>
         </article>
@@ -214,7 +193,7 @@ jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git status</b>
         <article>
             <ul>
                 <li>One of the most important command!</li>
-                <li>Creates a snapshot of each file staged for commit</li>
+                <li>Creates a <b>snapshot</b> of each file staged for commit</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
 jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git commit bar -m 'First commit of bar file'</b>
@@ -225,7 +204,7 @@ jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git commit -am 'Commit the remaining
 [master cd2c39c] Commit the remaining files
 0 files changed
 create mode 100644 foo
-create mode 100644 foo
+create mode 100644 foobar
     </pre>
         </article>
     </slide>
@@ -289,13 +268,13 @@ index e69de29..270c611 100644
                 <li>Move tracked file from one folder to another</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git mv foo bar</b>
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git mv foo foo2</b>
 jopasserat@vapula:/tmp/git_tutorial/ex1$ mkdir dir
-jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git mv foo dir/</b>
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git mv bar dir/</b>
 jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git ls-files</b>
-bar
-dir/foo
-bar
+foo2
+dir/bar
+foobar
             </pre>
         </article>
     </slide>
@@ -311,16 +290,16 @@ bar
                 <li>Stop tracking a file</li>
             </ul>
             <pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git rm bar</b>
-rm 'bar'
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git rm foo2</b>
+rm 'foo2'
 jopasserat@vapula:/tmp/git_tutorial/ex1$ ls
-bar	dir
-jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git rm --cached dir/foo</b>
-rm 'dir/foo'
+foobar	dir
+jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git rm --cached dir/bar</b>
+rm 'dir/bar'
 jopasserat@vapula:/tmp/git_tutorial/ex1$ ls
-bar	dir
+foobar	dir
 jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git ls-files</b>
-bar
+foobar
             </pre>
         </article>
     </slide>
@@ -348,9 +327,7 @@ jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git branch</b>
 jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git ls-files</b>
 bar
 foo
-foo
-jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git branch</b>
-* master
+foobar
 jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git branch let</b>
 jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git branch</b>
 let
@@ -371,12 +348,12 @@ let
             <pre class="prettyprint" data-lang="bash">
 jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git checkout let</b>
 Switched to branch 'let'
-jopasserat@vapula:/tmp/git_tutorial/ex2$ touch bar
-jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git add bar</b>
-jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git commit bar -m 'Add new file bar'</b>
-[let 6e38e6d] Add new file bar
+jopasserat@vapula:/tmp/git_tutorial/ex2$ touch bar_let
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git add bar_let</b>
+jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git commit bar -m 'Add new file bar_let'</b>
+[let 6e38e6d] Add new file bar_let
 0 files changed
-create mode 100644 bar
+create mode 100644 bar_let
 jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git checkout master</b>
 Switched to branch 'master'
 jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git log</b>
@@ -393,7 +370,7 @@ Author: jH@CKtheRipper <j.passerat-palmbach@imperial.ac.uk>
         <hgroup>
             <h2>git merge</h2>
         </hgroup>
-        <article>
+        <article class="build">
             <ul>
                 <li>Merge given branch into current one</li>
             </ul>
@@ -408,14 +385,10 @@ jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git merge master</b>
 Merge made by the 'recursive' strategy.
 foo |    1 +
 1 file changed, 1 insertion(+)
-jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git checkout master</b>
-Switched to branch 'master'
-jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git merge let</b>
-Updating 163b5cc..f5bd56a
-Fast-forward
-0 files changed
-create mode 100644 bar
                     </pre>
+	<center>
+	  <img src="./images/let+master.png" height="030%" width="030%" />
+	</center>
         </article>
     </slide>
 
@@ -450,102 +423,103 @@ Date:   Wed Mar 13 09:45:08 2013 +0100
     </slide>
    
     <slide class="segue dark nobackground">
-        <aside class="gdbar bottom"><img src="./images/original_octocat.png"></aside>
-        <hgroup class="auto-fadein">
-            <h2>Git - the ultimate VCS</h2>
-            <h3>Advanced commands: collaborating with other people</h3>
-        </hgroup>
-    </slide>
-    
-    <slide>
-        <hgroup>
-            <h2>git clone</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Create a local copy of a remote repository by downloading it</li>
-            </ul>
-            <pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:/tmp/git_tutorial/ex3$ <b>git clone
-    git://github.com/jHackTheRipper/git_tutorial-biomedia.git</b>
-Cloning into 'git_tutorial-biomedia'...
-remote: Counting objects: 22, done.
-remote: Compressing objects: 100% (16/16), done.
-remote: Total 22 (delta 6), reused 22 (delta 6)
-Receiving objects: 100% (22/22), 286.11 KiB | 77 KiB/s, done.
-Resolving deltas: 100% (6/6), done.
-jopasserat@vapula:/tmp/git_tutorial/ex3$ cd git_tutorial-biomedia/
-jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ vi README.md
-jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git commit -am 'Now I can
-    tune the README the way I want in my own copy'</b>
-[master fe5d9b0] Now I can tune the README the way I want in my own copy
-1 file changed, 2 insertions(+)
-            </pre>
-        </article>
-    </slide>
-    
-    <slide>
-        <hgroup>
-            <h2>git push</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Send changes from your local repository to a remote one</li>
-            </ul>
-            <pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:~/git_tutorial_biomedia_18-12-13$ <b>git commit -am 'Add new
-    slides to 3rd class (git_tutorial)'</b>
-[master 5693571] Add new slides to 3rd class (git_tutorial)
-1 file changed, 39 insertions(+), 18 deletions(-)
-jopasserat@vapula:~/git_tutorial_biomedia_18-12-13$ <b>git push origin master</b>
-Counting objects: 7, done.
-Delta compression using up to 2 threads.
-Compressing objects: 100% (4/4), done.
-Writing objects: 100% (4/4), 960 bytes, done.
-Total 4 (delta 2), reused 0 (delta 0)
-To git@github.com:jHackTheRipper/git_tutorial-biomedia.git
-b711a37..5693571  master -> master
-            </pre>
-        </article>
-    </slide>
-    
-    <slide>
-        <hgroup>
-            <h2>git pull</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li><b>Fetch</b> and <b>merge</b> new commits added to a given remote repository</li>
-            </ul>
-            <pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git pull origin master</b>
-remote: Counting objects: 7, done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 4 (delta 2), reused 4 (delta 2)
-Unpacking objects: 100% (4/4), done.
-From git://github.com/jHackTheRipper/git_tutorial-biomedia
-* branch            master     -> FETCH_HEAD
-Merge made by the 'recursive' strategy.
-git_tutorial/index.html |   57 +++++++++++++++++++++++++++++++++++-----------------
-1 file changed, 39 insertions(+), 18 deletions(-)
-            </pre>
-        </article>
-    </slide>
-    
-    <slide>
-        <hgroup>
-            <h2>Resolving conflicts</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Conflicts happen when trying to merge a commit that changes a file you also modified in your working tree</li>
-            </ul>
-            
-            <ul class="build fade">
-                
-            <li><pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ vi git_tutorial/index.html
-jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git commit -am 'My changes
+	  <aside class="gdbar bottom"><img src="./images/original_octocat.png"></aside>
+	  <hgroup class="auto-fadein">
+	      <h2>Git - the ultimate VCS</h2>
+	      <h3>Advanced commands: collaborating with other people</h3>
+	  </hgroup>
+      </slide>
+      
+      <slide>
+	  <hgroup>
+	      <h2>git clone</h2>
+	  </hgroup>
+	  <article>
+	      <ul>
+		  <li>Create a local copy of a remote repository by downloading it</li>
+	      </ul>
+	      <pre class="prettyprint" data-lang="bash">
+  jopasserat@vapula:/tmp/git_tutorial/ex3$ <b>git clone
+      git://github.com/jHackTheRipper/git_tutorial-biomedia.git</b>
+  Cloning into 'git_tutorial-biomedia'...
+  remote: Counting objects: 22, done.
+  remote: Compressing objects: 100% (16/16), done.
+  remote: Total 22 (delta 6), reused 22 (delta 6)
+  Receiving objects: 100% (22/22), 286.11 KiB | 77 KiB/s, done.
+  Resolving deltas: 100% (6/6), done.
+  jopasserat@vapula:/tmp/git_tutorial/ex3$ cd git_tutorial-biomedia/
+  jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ vi README.md
+  jopasserat@vapula:.../git_tutorial-biomedia$ <b>git commit -am 'Now I can
+      tune the README the way I want in my own copy'</b>
+  [master fe5d9b0] Now I can tune the README the way I want in my own copy
+  1 file changed, 2 insertions(+)
+	      </pre>
+	  </article>
+      </slide>
+      
+      <slide>
+	  <hgroup>
+	      <h2>git push</h2>
+	  </hgroup>
+	  <article>
+	      <ul>
+		  <li>Send changes from your local repository to a remote one</li>
+		  <li>git push [-u] <remote branch> <local branch></li>
+	      </ul>
+	      <pre class="prettyprint" data-lang="bash">
+  jopasserat@vapula:~/git_tutorial_biomedia_18-12-13$ <b>git commit -am 'Add new
+      slides to 3rd class (git_tutorial)'</b>
+  [master 5693571] Add new slides to 3rd class (git_tutorial)
+  1 file changed, 39 insertions(+), 18 deletions(-)
+  jopasserat@vapula:~/git_tutorial_biomedia_18-12-13$ <b>git push origin master</b>
+  Counting objects: 7, done.
+  Delta compression using up to 2 threads.
+  Compressing objects: 100% (4/4), done.
+  Writing objects: 100% (4/4), 960 bytes, done.
+  Total 4 (delta 2), reused 0 (delta 0)
+  To git@github.com:jHackTheRipper/git_tutorial-biomedia.git
+  b711a37..5693571  master -> master
+	      </pre>
+	  </article>
+      </slide>
+      
+      <slide>
+	  <hgroup>
+	      <h2>git pull</h2>
+	  </hgroup>
+	  <article>
+	      <ul>
+		  <li><b>Fetch</b> and <b>merge</b> new commits added to a given remote repository</li>
+	      </ul>
+	      <pre class="prettyprint" data-lang="bash">
+  jopasserat@vapula:.../git_tutorial-biomedia$ <b>git pull origin master</b>
+  remote: Counting objects: 7, done.
+  remote: Compressing objects: 100% (2/2), done.
+  remote: Total 4 (delta 2), reused 4 (delta 2)
+  Unpacking objects: 100% (4/4), done.
+  From git://github.com/jHackTheRipper/git_tutorial-biomedia
+  * branch            master     -> FETCH_HEAD
+  Merge made by the 'recursive' strategy.
+  git_tutorial/index.html |   57 +++++++++++++++++++++++++++++++++++-----------------
+  1 file changed, 39 insertions(+), 18 deletions(-)
+	      </pre>
+	  </article>
+      </slide>
+      
+      <slide>
+	  <hgroup>
+	      <h2>Resolving conflicts</h2>
+	  </hgroup>
+	  <article>
+	      <ul>
+		  <li>Conflicts happen when trying to merge a commit that changes a file you also modified in your working tree</li>
+	      </ul>
+	      
+	      <ul class="build fade">
+		  
+	      <li><pre class="prettyprint" data-lang="bash">
+jopasserat@vapula:.../git_tutorial-biomedia$ vi git_tutorial/index.html
+jopasserat@vapula:.../git_tutorial-biomedia$ <b>git commit -am 'My changes
     that will lead to a conflict'</b>
 [master 94647de] My changes that will lead to a conflict
 1 file changed, 1 insertion(+), 1 deletion(-)
@@ -553,40 +527,40 @@ jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git pull</b>
 Auto-merging git_tutorial/index.html
 CONFLICT (content): Merge conflict in git_tutorial/index.html
 Automatic merge failed; fix conflicts and then commit the result.
-</pre></li>
-                
-<li><pre class="prettyprint" data-lang="html">
-<<<<<<< HEAD
-<\h2>Git => the ultimate versioning tool<\/h2>
-=======
-<\h2>Git - the ultimate versioning tool<\/h2>
->>>>>>> d107fdb549491a8becb6f36f01ea27ea9a4daf5e
-</li></pre>
+  </pre></li>
+		  
+  <li><pre class="prettyprint" data-lang="html">
+  <<<<<<< HEAD
+  <\h2>Git => the ultimate versioning tool<\/h2>
+  =======
+  <\h2>Git - the ultimate versioning tool<\/h2>
+  >>>>>>> d107fdb549491a8becb6f36f01ea27ea9a4daf5e
+  </li></pre>
 
-        </article>
-    </slide>
-    
-    
-    
-    <slide>
-        <hgroup>
-            <h2>Resolving conflicts</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Conflicts happen when trying to merge a commit that changes a file you also modified in your working tree</li>
-            </ul>
-            <pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git add git_tutorial/index.html</b>
-jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git commit -am 'Solved
-merge conflict'</b>
-[master 246f7a1] Solved merge conflict
-            </pre>
-        </article>
-    </slide>
+	  </article>
+      </slide>
+      
+      
+      
+      <slide>
+	  <hgroup>
+	      <h2>Resolving conflicts</h2>
+	  </hgroup>
+	  <article>
+	      <ul>
+		  <li>Conflicts happen when trying to merge a commit that changes a file you also modified in your working tree</li>
+	      </ul>
+	      <pre class="prettyprint" data-lang="bash">
+  jopasserat@vapula:.../git_tutorial-biomedia$ <b>git add git_tutorial/index.html</b>
+  jopasserat@vapula:.../git_tutorial-biomedia$ <b>git commit -am 'Solved
+  merge conflict'</b>
+  [master 246f7a1] Solved merge conflict
+	      </pre>
+	  </article>
+      </slide>
 
-    <slide class="segue dark nobackground">
-        <aside class="gdbar bottom"><img src="./images/original_octocat.png"></aside>
+      <slide class="segue dark nobackground">
+	  <aside class="gdbar bottom"><img src="./images/original_octocat.png"></aside>
         <hgroup class="auto-fadein">
             <h2>Git - the ultimate VCS</h2>
 	    <h3>A successful Git branching model applied to IRTK</h3>
@@ -665,27 +639,25 @@ jpassera@hornbeam:~/playground/IRTK$ <b>git push [-u] origin develop</b>
       <hgroup>
         <h2>Developing a new feature</h2>
       </hgroup>
-      <article>
+      <article class="build">
       <pre class="prettyprint" data-lang="bash">    
-jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git checkout -b featureUndoRedoButton</b>
+jpassera@hornbeam:~/.../IRTK/...$ <b>git checkout -b featureUndoRedoButton</b>
 Switched to a new branch 'featureUndoRedoButton'
-jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ vi Fl_RView_Transformation.cc
-jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git commit -am 'Add undo button to rview'</b>
-[featureUndoRedoButton f867aff] Add undo button to rview
-1 file changed, 4 insertions(+)
-jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ vi Fl_RView_Transformation.cc
-jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git commit -am 'Add redo button to rview'</b>
-[featureUndoRedoButton 7520857] Add redo button to rview
-1 file changed, 4 insertions(+)
-jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git checkout develop</b>
+jpassera@hornbeam:~/.../IRTK/...$ vi Fl_RView_Transformation.cc
+jpassera@hornbeam:~/.../IRTK/...$ <b>git commit -am 'Add undo button to rview'</b>
+jpassera@hornbeam:~/.../IRTK/...$ vi Fl_RView_Transformation.cc
+jpassera@hornbeam:~/.../IRTK/...$ <b>git commit -am 'Add redo button to rview'</b>
+</pre>
+<pre class="prettyprint" data-lang="bash">
+jpassera@hornbeam:~/.../IRTK/...$ <b>git checkout develop</b>
 Switched to branch 'develop'
-jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git merge --no-ff featureUndoRedoButton</b>
+jpassera@hornbeam:~/.../IRTK/...$ <b>git merge --no-ff featureUndoRedoButton</b>
 Merge made by the 'recursive' strategy.
 packages/rview/fltk/Fl_RView_Transformation.cc | 8 ++++++++
 1 file changed, 8 insertions(+)
-jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git branch -d featureUndoRedoButton</b>
+jpassera@hornbeam:~/.../IRTK/...$ <b>git branch -d featureUndoRedoButton</b>
 Deleted branch featureUndoRedoButton (was 7520857).
-jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git push origin develop</b>
+jpassera@hornbeam:~/.../IRTK/...$ <b>git push origin develop</b>
       </pre>
       </article>
     </slide>
@@ -697,9 +669,9 @@ jpassera@hornbeam:~/playground/IRTK/packages/rview/fltk$ <b>git push origin deve
 
       <article>
         <center>
-          <img src="./images/hotfix.png" />
+          <img src="./images/hotfix.png" height="25%" width="25%"/>
         </center>
-        <p>Example: correct the test of irtkCUGenericImage creations</p>
+        <p>Example: fix tests of irtkCUGenericImage creations</p>
       <pre class="prettyprint" data-lang="c++">    
 irtkCUGenericImage<irtkBytePixel>* test1 = new irtkCUGenericImage<irtkBytePixel>();
 if(test1 != NULL) std::cout << "constructor test 1 --> Pass" << std::endl;
@@ -711,28 +683,37 @@ if(test1 != NULL) std::cout << "constructor test 1 --> Pass" << std::endl;
       <hgroup>
         <h2>Developing a hotfix</h2>
       </hgroup>
-      <article>
+      <article class="build">
       <pre class="prettyprint" data-lang="bash">    
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git checkout -b hotfix-xYz master</b>
+jpassera@hornbeam:.../IRTK$ <b>git checkout -b hotfix-xYz master</b>
 Switched to a new branch 'hotfix-xYz'
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ vi cudaCommon++/tests/irtkCUImageTest.cpp 
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git commit -am "Tested irtkCUGenericImage creation with bad_alloc instead of NULL"</b>
-[hotfix-xYz 0a4ed3d] Tested irtkCUGenericImage creation with bad_alloc instead of NULL
-1 file changed, 15 insertions(+), 16 deletions(-)
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git checkout master</b>
-Switched to branch 'master'
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git merge --no-ff hotfix-xYz master</b>
+jpassera@hornbeam:.../IRTK$ vi cudaCommon++/tests/irtkCUImageTest.cpp 
+jpassera@hornbeam:.../IRTK$ <b>git commit -am "Tested irtkCUGenericImage creation with <br/>bad_alloc instead of NULL"</b>
+</pre>
+<pre class="prettyprint" data-lang="bash">    
+jpassera@hornbeam:.../IRTK$ <b>git checkout master</b>
+jpassera@hornbeam:.../IRTK$ <b>git merge --no-ff hotfix-xYz master</b>
 Merge made by the 'recursive' strategy.
 cudaCommon++/tests/irtkCUImageTest.cpp | 31 +++++++++++++++----------------
 1 file changed, 15 insertions(+), 16 deletions(-)
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git tag -a xYz.1</b>
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git push origin master</b>
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git checkout develop</b>
-Switched to branch 'develop'
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git merge --no-ff hotfix-xYz master</b>
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git branch -d hotfix-xYz</b>
+jpassera@hornbeam:.../IRTK$ <b>git tag -a xYz.1</b>
+jpassera@hornbeam:.../IRTK$ <b>git push origin master</b>
+</pre>
+      </article>
+    </slide>
+
+
+     <slide>
+      <hgroup>
+        <h2>Developing a hotfix</h2>
+      </hgroup>
+      <article>
+<pre class="prettyprint" data-lang="bash">    
+jpassera@hornbeam:.../IRTK$ <b>git checkout develop</b>
+jpassera@hornbeam:.../IRTK$ <b>git merge --no-ff hotfix-xYz master</b>
+jpassera@hornbeam:.../IRTK$ <b>git branch -d hotfix-xYz</b>
 Deleted branch hotfix-xYz (was 0a4ed3d).
-jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git push origin develop</b>
+jpassera@hornbeam:.../IRTK$ <b>git push origin develop</b>
         </pre>
       </article>
     </slide>
@@ -743,6 +724,7 @@ jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git push origin develop<
       </hgroup>
       <article>
       <ul>
+	<li>Reset (soft)</li>
 	<li>Cherry-picking</li>
 	<li>Submodules</li>
 	<li>Stashing</li>
@@ -758,10 +740,10 @@ jpassera@hornbeam:/vol/biomedic/users/jpassera/IRTK$ <b>git push origin develop<
     <article class="flexbox vleft auto-fadein">
       <h2>&lt;References&gt;</h2><br/>
       <ul >
-        <li><a style="color: white" href="http://www.git-scm.com/book">Pro.Git http://www.git-scm.com/book</a></li>
-        <li><a style="color: white" href="http://nvie.com/posts/a-successful-git-branching-model/">A sucessful Git branching model http://nvie.com/posts/a-successful-git-branching-model/</a></li>
-	<li><a style="color: white" href="http://gitready.com/">git ready http://gitready.com/</a></li>
-        <li><a style="color: white" href="https://git.wiki.kernel.org/index.php/GitSvnComparsion">GitSVNComparison https://git.wiki.kernel.org/index.php/GitSvnComparsion</a></li>
+        <li><a style="color: white" href="http://www.git-scm.com/book">Pro.Git <br/>http://www.git-scm.com/book</a></li>
+        <li><a style="color: white" href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model <br/>http://nvie.com/posts/a-successful-git-branching-model/</a></li>
+	<li><a style="color: white" href="http://gitready.com/">git ready <br/>http://gitready.com/</a></li>
+        <li><a style="color: white" href="https://git.wiki.kernel.org/index.php/GitSvnComparsion">GitSVNComparison <br/>https://git.wiki.kernel.org/index.php/GitSvnComparsion</a></li>
       </ul>
     </article>
     <p class="auto-fadein" data-config-contact>
