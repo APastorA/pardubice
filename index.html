@@ -3,7 +3,7 @@ Google IO 2012 HTML5 Slide Template
 
 Authors: Eric Bidelman <ebidel@gmail.com>
          Luke Mahé <lukem@google.com>
-Modified by jH@CKtheRipper, 2/20/13	 
+Modified by Jonathan Passerat-Palmbach, 2/20/13	 
 
 URL: https://code.google.com/p/io-2012-slides
 -->
@@ -144,7 +144,7 @@ Initialized empty Git repository in /private/tmp/git_tutorial/ex1/.git/
 
     <slide>
         <hgroup>
-            <h2>git add <file list> </h2>
+            <h2>git add</h2>
         </hgroup>
         <article>
             <ul>
@@ -221,13 +221,13 @@ create mode 100644 foobar
             <pre class="prettyprint" data-lang="bash">
 jopasserat@vapula:/tmp/git_tutorial/ex1$ <b>git log</b>
 commit cd2c39cc6a6bb6a08f3d74c37ecc0dfd71e5d604
-Author: jH@CKtheRipper <j.passerat-palmbach@imperial.ac.uk>
+Author: Jonathan Passerat-Palmbach <j.passerat-palmbach@imperial.ac.uk>
 Date:   Tue Mar 12 22:48:32 2013 +0100
     
     Commit the remaining files
     
 commit 6ba7d15d3fe75bfe279f51eae81cdb11016afee1
-Author: jH@CKtheRipper <j.passerat-palmbach@imperial.ac.uk>
+Author: Jonathan Passerat-Palmbach <j.passerat-palmbach@imperial.ac.uk>
 Date:   Tue Mar 12 22:48:03 2013 +0100
         
     First commit of bar file
@@ -358,7 +358,7 @@ jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git checkout master</b>
 Switched to branch 'master'
 jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git log</b>
 commit 3dad27b54e5e32c81339a24683cfc69f5cd699e6
-Author: jH@CKtheRipper <j.passerat-palmbach@imperial.ac.uk>
+Author: Jonathan Passerat-Palmbach <j.passerat-palmbach@imperial.ac.uk>
     Date:   Wed Mar 13 09:20:30 2013 +0100
     
     Initial commit for ex2
@@ -406,7 +406,7 @@ jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git revert 163b5cc</b>
 1 file changed, 1 deletion(-)
 jopasserat@vapula:/tmp/git_tutorial/ex2$ <b>git log</b>
 commit 079e61373807ec29839ed064a943f6ff5b6d8229
-Author: jH@CKtheRipper <j.passerat-palmbach@imperial.ac.uk>
+Author: Jonathan Passerat-Palmbach <j.passerat-palmbach@imperial.ac.uk>
 Date:   Wed Mar 13 10:08:11 2013 +0100
     
     Revert "Add content to foo"
@@ -414,7 +414,7 @@ Date:   Wed Mar 13 10:08:11 2013 +0100
     This reverts commit 163b5cc12867376275a84f2355d42e412ed317c2.
 ...
 commit 163b5cc12867376275a84f2355d42e412ed317c2
-Author: jH@CKtheRipper <j.passerat-palmbach@imperial.ac.uk>
+Author: Jonathan Passerat-Palmbach <j.passerat-palmbach@imperial.ac.uk>
 Date:   Wed Mar 13 09:45:08 2013 +0100
             
     Add content to foo
@@ -440,16 +440,16 @@ Date:   Wed Mar 13 09:45:08 2013 +0100
 	      </ul>
 	      <pre class="prettyprint" data-lang="bash">
   jopasserat@vapula:/tmp/git_tutorial/ex3$ <b>git clone
-      git://github.com/jHackTheRipper/git_tutorial-biomedia.git</b>
-  Cloning into 'git_tutorial-biomedia'...
+      git://github.com/jHackTheRipper/git_tutorial-pardubice.git</b>
+  Cloning into 'git_tutorial-pardubice'...
   remote: Counting objects: 22, done.
   remote: Compressing objects: 100% (16/16), done.
   remote: Total 22 (delta 6), reused 22 (delta 6)
   Receiving objects: 100% (22/22), 286.11 KiB | 77 KiB/s, done.
   Resolving deltas: 100% (6/6), done.
-  jopasserat@vapula:/tmp/git_tutorial/ex3$ cd git_tutorial-biomedia/
-  jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ vi README.md
-  jopasserat@vapula:.../git_tutorial-biomedia$ <b>git commit -am 'Now I can
+  jopasserat@vapula:/tmp/git_tutorial/ex3$ cd git_tutorial-pardubice/
+  jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-pardubice$ vi README.md
+  jopasserat@vapula:.../git_tutorial-pardubice$ <b>git commit -am 'Now I can
       tune the README the way I want in my own copy'</b>
   [master fe5d9b0] Now I can tune the README the way I want in my own copy
   1 file changed, 2 insertions(+)
@@ -467,17 +467,17 @@ Date:   Wed Mar 13 09:45:08 2013 +0100
 		  <li>git push [-u] <remote branch> <local branch></li>
 	      </ul>
 	      <pre class="prettyprint" data-lang="bash">
-  jopasserat@vapula:~/git_tutorial_biomedia_18-12-13$ <b>git commit -am 'Add new
+  jopasserat@vapula:~/git_tutorial_pardubice_18-12-13$ <b>git commit -am 'Add new
       slides to 3rd class (git_tutorial)'</b>
   [master 5693571] Add new slides to 3rd class (git_tutorial)
   1 file changed, 39 insertions(+), 18 deletions(-)
-  jopasserat@vapula:~/git_tutorial_biomedia_18-12-13$ <b>git push origin master</b>
+  jopasserat@vapula:~/git_tutorial_pardubice_18-12-13$ <b>git push origin master</b>
   Counting objects: 7, done.
   Delta compression using up to 2 threads.
   Compressing objects: 100% (4/4), done.
   Writing objects: 100% (4/4), 960 bytes, done.
   Total 4 (delta 2), reused 0 (delta 0)
-  To git@github.com:jHackTheRipper/git_tutorial-biomedia.git
+  To git@github.com:jHackTheRipper/git_tutorial-pardubice.git
   b711a37..5693571  master -> master
 	      </pre>
 	  </article>
@@ -492,12 +492,12 @@ Date:   Wed Mar 13 09:45:08 2013 +0100
 		  <li><b>Fetch</b> and <b>merge</b> new commits added to a given remote repository</li>
 	      </ul>
 	      <pre class="prettyprint" data-lang="bash">
-  jopasserat@vapula:.../git_tutorial-biomedia$ <b>git pull origin master</b>
+  jopasserat@vapula:.../git_tutorial-pardubice$ <b>git pull origin master</b>
   remote: Counting objects: 7, done.
   remote: Compressing objects: 100% (2/2), done.
   remote: Total 4 (delta 2), reused 4 (delta 2)
   Unpacking objects: 100% (4/4), done.
-  From git://github.com/jHackTheRipper/git_tutorial-biomedia
+  From git://github.com/jHackTheRipper/git_tutorial-pardubice
   * branch            master     -> FETCH_HEAD
   Merge made by the 'recursive' strategy.
   git_tutorial/index.html |   57 +++++++++++++++++++++++++++++++++++-----------------
@@ -518,12 +518,12 @@ Date:   Wed Mar 13 09:45:08 2013 +0100
 	      <ul class="build fade">
 		  
 	      <li><pre class="prettyprint" data-lang="bash">
-jopasserat@vapula:.../git_tutorial-biomedia$ vi git_tutorial/index.html
-jopasserat@vapula:.../git_tutorial-biomedia$ <b>git commit -am 'My changes
+jopasserat@vapula:.../git_tutorial-pardubice$ vi git_tutorial/index.html
+jopasserat@vapula:.../git_tutorial-pardubice$ <b>git commit -am 'My changes
     that will lead to a conflict'</b>
 [master 94647de] My changes that will lead to a conflict
 1 file changed, 1 insertion(+), 1 deletion(-)
-jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-biomedia$ <b>git pull</b>
+jopasserat@vapula:/tmp/git_tutorial/ex3/git_tutorial-pardubice$ <b>git pull</b>
 Auto-merging git_tutorial/index.html
 CONFLICT (content): Merge conflict in git_tutorial/index.html
 Automatic merge failed; fix conflicts and then commit the result.
@@ -551,8 +551,8 @@ Automatic merge failed; fix conflicts and then commit the result.
 		  <li>Conflicts happen when trying to merge a commit that changes a file you also modified in your working tree</li>
 	      </ul>
 	      <pre class="prettyprint" data-lang="bash">
-  jopasserat@vapula:.../git_tutorial-biomedia$ <b>git add git_tutorial/index.html</b>
-  jopasserat@vapula:.../git_tutorial-biomedia$ <b>git commit -am 'Solved
+  jopasserat@vapula:.../git_tutorial-pardubice$ <b>git add git_tutorial/index.html</b>
+  jopasserat@vapula:.../git_tutorial-pardubice$ <b>git commit -am 'Solved
   merge conflict'</b>
   [master 246f7a1] Solved merge conflict
 	      </pre>
@@ -563,8 +563,10 @@ Automatic merge failed; fix conflicts and then commit the result.
 	  <aside class="gdbar bottom"><img src="./images/original_octocat.png"></aside>
         <hgroup class="auto-fadein">
             <h2>Git - the ultimate VCS</h2>
-	    <h3>A successful Git branching model applied to IRTK</h3>
+	    <h3>A successful Git branching model applied to the IRTK library</h3>
             <h4>Schemas courtesy of Vincent Driessen - "A successful Git branching model" - 2010</h4>
+            <br/>
+            <h4>IRTK is an image registration library developed by the BioMedIA group at Imperial College London</h4>
         </hgroup>
     </slide>
 
@@ -724,10 +726,17 @@ jpassera@hornbeam:.../IRTK$ <b>git push origin develop</b>
       </hgroup>
       <article>
       <ul>
-	<li>Reset (soft)</li>
-	<li>Cherry-picking</li>
-	<li>Submodules</li>
+	<li>Reset (soft/hard)</li>
+	   </ul>
+       <ul>
+    <li>Rebase</li>
+    <li>Cherry-picking</li>
 	<li>Stashing</li>
+    </ul>
+    <ul>
+    <li>Submodules</li>
+	</ul>
+    <ul>
 	<li>Patch</li>
       </ul>
 

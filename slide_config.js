@@ -2,7 +2,7 @@ var SLIDE_CONFIG = {
   // Slide settings
   settings: {
     title: 'Git - the ultimate Version Control System (VCS)',
-    subtitle: 'BiomedIA - Git Tutorial - December, 18th 2013',
+    subtitle: 'University of Pardubice - Git Tutorial - May, 19th 2014',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
     enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.
@@ -21,7 +21,7 @@ var SLIDE_CONFIG = {
     name: 'Jonathan Passerat-Palmbach',
     company: 'Imperial College London',
     www: 'http://jopasser.at   (coming soon :)',
-    github: 'http://github.com/jHackTheRipper'
+    github: 'http://github.com/jopasserat'
   }/*, {
     name: 'Second Name',
     company: 'Job Title, Google',
